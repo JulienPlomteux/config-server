@@ -1,0 +1,23 @@
+encrypt:
+  key-store:
+    alias: ConfigServerEncryptionKey
+    secret: ${ConfigServerEncryptionKey}
+    password: ${ConfigServerEncryptionKey}
+    location: ${PathConfigServerEncryptionKey}
+server:
+  ssl:
+    key-alias: ConfigServerSslKey
+    key-store-password: ${ConfigServerSslKey}
+    key-store-type: PKCS12
+    key-store: ${PathConfigServerSslKey}
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${gitConfigUri}
+          ignore-local-ssh-settings: true
+          passphrase: ${GitSshKey}
+          private-key: ${GitSshRsaKey}
