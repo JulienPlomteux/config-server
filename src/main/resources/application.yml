@@ -18,6 +18,4 @@ spring:
       server:
         git:
           uri: ${gitConfigUri}
-          ignore-local-ssh-settings: true
           passphrase: ${GitSshKey}
-          private-key: ${GitSshRsaKey}
