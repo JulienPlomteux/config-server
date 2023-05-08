@@ -16,8 +16,6 @@ spring:
   cloud:
     config:
       server:
-        encrypt:
-          enabled: false
         git:
           uri: ${gitConfigUri}
           passphrase: ${GitSshKey}
