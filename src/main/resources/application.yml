@@ -12,13 +12,12 @@ server:
     key-store: ${PathConfigServerSslKey}
   port: 8888
 spring:
+  security:
     user:
       password: ${ConfigServerAccessKey}
-security:
-  ignored: /encrypt
-  cloud:
-    config:
-      server:
-        git:
-          uri: ${gitConfigUri}
-          passphrase: ${GitSshKey}
+    cloud:
+      config:
+        server:
+          git:
+            uri: ${gitConfigUri}
+
