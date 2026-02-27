@@ -17,6 +17,10 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
+                    .requestMatchers(request -> {
+                        String uri = request.getRequestURI();
+                        return "/actuator/health".equals(uri) || uri.startsWith("/actuator/health/");
+                    }).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
